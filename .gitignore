@@ -1,0 +1,10 @@
+llama.cpp/
+models/
+*.gguf
+*.bin
+*.so
+*.o
+*.a
+build/
+*.log
+*.tmp
