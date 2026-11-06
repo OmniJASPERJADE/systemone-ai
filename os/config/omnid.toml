@@ -1,0 +1,7 @@
+[[services]]
+name = "system-one-example"
+command = "/usr/bin/sleep"
+args = ["infinity"]
+enabled = true
+restart = "on-failure"
+restart_delay_ms = 2000

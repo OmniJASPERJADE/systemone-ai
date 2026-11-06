@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = [
+    "OmniSoft/omnid",
+    "OmniSilicon/omni-silicon"
+]
