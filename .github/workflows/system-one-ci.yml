@@ -1,0 +1,42 @@
+name: System-One OS Cloud Build
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  system-one-validation:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout System-One
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential cmake ninja-build \
+            clang llvm lld git \
+            rustc cargo python3 \
+            bc flex bison libssl-dev libelf-dev
+
+      - name: Validate architecture
+        run: |
+          for dir in LXNU OmniAI OmniRed OmniSilicon \
+            OmniPerformance OmniSoft Libraries Hardware \
+            Applications specification; do
+            test -d "$dir" && echo "FOUND: $dir" \
+              || echo "NOT IMPLEMENTED: $dir"
+          done
+
+      - name: Validate Git repository
+        run: |
+          git status --short
+          git log -1 --oneline
