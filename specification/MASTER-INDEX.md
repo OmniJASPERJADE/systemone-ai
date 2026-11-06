@@ -83,3 +83,19 @@ Hardware qualification: Pending
 Release qualification: Pending
 
 Subsystem specifications are maintained separately.
+
+## Master Integration
+
+- MASTER-INTEGRATION.md
+
+## Hardware Integration
+
+- Hardware/OmniG1/INDEX.md
+
+## Additional Integration Specifications
+
+- OmniAI/OMNIAI-INTEGRATION.md
+- OmniRed/GRAPHICS-INTEGRATION.md
+- OmniSilicon/OMNIG1-INTEGRATION.md
+- OmniVec/OMNIVEC-II-INTEGRATION.md
+- OmniPerformance/ROADMAP.md

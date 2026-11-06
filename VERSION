@@ -1,0 +1,7 @@
+System-One OS
+Architecture: AMD64
+Architecture Baseline: Consolidated
+Package Manager: APT
+Package Format: DEB
+Init: dinit
+Kernel Target: LXNU 7.3.1+

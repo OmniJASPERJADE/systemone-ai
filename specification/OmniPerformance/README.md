@@ -1,112 +1,114 @@
 # Omni Performance Libraries
-## System-One Optimization Architecture
+## OmniSoft Performance Engineering
 
-### 1. Platform
-- AMD64 only
-- AMD Zen 4 minimum
-- AMD Radeon RDNA
+Organization: OmniSoft
+Platform: AMD64
+Minimum CPU: AMD Zen 4
+
+## 1. Architecture
+
+Omni Performance Libraries provide optimized
+computing primitives for System-One OS.
+
+Backends:
+- AMD Zen CPU
+- AMD Radeon RDNA GPU
 - AMD XDNA NPU
-- LPDDR5X / DDR5
+- OmniUMA memory architecture
 
-### 2. CPU Optimization
-- x86-64-v3 baseline
-- AVX2
-- FMA3
+## 2. CPU Optimization
+
+Baseline:
+- x86-64-v3
 - SSE4.2
-- Runtime ISA dispatch
-- Cache-aware algorithms
-- Multithreading
-- AMD Zen 4 scheduling
+- AVX2
+- FMA
 
-### 3. OmniVec-II
-- Vector execution
-- Heterogeneous dispatch
-- CPU backend
-- Radeon GPU backend
-- XDNA NPU backend
+Optional:
+- x86-64-v4
+- AVX-512
+
+AVX-512 dispatch requires runtime CPU
+feature and operating-system state verification.
+
+## 3. GPU Optimization
+
+- AMD Radeon
+- RDNA architecture
+- Vulkan compute
+- Mesa RADV
+- ROCm/HIP where supported
+- GPU memory management
+
+## 4. NPU Optimization
+
+- AMD XDNA support where available
+- OmniAI integration
+- vCIM interface
 - Cooperative workload scheduling
 
-### 4. Omni Numeric Math Engine
-- Matrix multiplication
-- Vector mathematics
-- Floating-point operations
-- Integer arithmetic
-- FP16 where supported
-- BF16 where supported
-- INT8 quantization
-- Numerical validation
+## 5. Memory Libraries
 
-### 5. Omni Compression Engine (OCE)
-- Zstandard integration
-- LZ4 integration
-- Zlib integration
-- Parallel compression
-- Archive optimization
-- Package compression
-- Workload-aware compression
+- OmniUMA
+- Memory allocation
+- Memory copying
+- Cache optimization
+- NUMA awareness where applicable
+- Bandwidth measurement
 
-### 6. OmniColor96
-- Pixel processing
-- Color conversion
-- HDR processing
-- Image transforms
+## 6. Numerical Libraries
+
+- Matrix operations
+- Vector operations
+- Floating-point computation
+- Integer computation
+- Scientific mathematics
+- Parallel processing
+
+## 7. Compression Libraries
+
+- Omni Compression Engine (OCE)
+- Lossless compression
+- Decompression
+- Streaming compression
 - SIMD acceleration
-- GPU acceleration
 
-### 7. Memory Optimization
-- OmniUMA integration
-- Cache locality
-- Memory alignment
-- Prefetching
-- Zero-copy where supported
-- DMA-BUF interoperability
-- Allocation tracking
+## 8. Image Processing
 
-### 8. Bandwidth Measurement
+- PixelGen
+- OmniColor96
+- PixelXIO
+- Image conversion
+- Color management
+- Parallel image processing
 
-Theoretical bandwidth:
+## 9. Runtime Dispatch
 
-GB/s = MT/s x bus width / 8 / 1000
+Dispatch priority:
+1. Detect CPU capabilities.
+2. Detect GPU capabilities.
+3. Detect NPU availability.
+4. Verify backend compatibility.
+5. Select optimized implementation.
+6. Preserve portable fallback.
 
-For a 128-bit aggregate interface:
+## 10. Benchmark Requirements
 
-LPDDR5X-7500 = 120 GB/s
-LPDDR5X-8000 = 128 GB/s
-LPDDR5X-8533 = 136.528 GB/s
-LPDDR5X-9600 = 153.6 GB/s
+Measure:
+- Throughput
+- Latency
+- Memory bandwidth
+- CPU utilization
+- GPU utilization
+- NPU utilization
+- Power consumption
+- Thermal behavior
 
-Effective bandwidth:
+All benchmarks must be reproducible.
 
-Effective GB/s =
-Measured transferred bytes / elapsed seconds / 1e9
+## 11. Engineering Status
 
-Efficiency:
-
-Efficiency (%) =
-Measured bandwidth / theoretical bandwidth x 100
-
-### 9. Benchmark Suite
-- STREAM Triad
-- STREAM Copy
-- Sequential read
-- Sequential write
-- Random memory access
-- Matrix multiplication
-- Compression throughput
-- Image processing throughput
-- CPU/GPU contention
-- NPU inference latency
-
-### 10. Engineering Requirements
-- AMD-only optimization targets
-- Portable fallback paths
-- Runtime capability detection
-- Reproducible benchmarks
-- Correctness testing
-- Power consumption measurements
-
-### Status
 Architecture: Defined
 Implementation: In progress
 Verification: Pending
-Benchmark qualification: Pending
+Performance qualification: Pending
